@@ -52,31 +52,3 @@ function renderPostFooter() {
 }
 
 renderFeed( feed );
-
-
-
-
-
-
-
-
-
-
-
-
-
-function renderPost( data ) {
-    console.log('-----------------');
-    console.log(data);
-
-    if ( !data.author || !data.time || !data.content ) {
-        return '';
-    }
-
-    let HTML = `<div class="post">
-                    ${renderPostHeader( data.author, data.time )}
-                    ${renderPostContent( data.content )}
-                    ${renderPostFooter()}
-                </div>`;
-    return HTML;
-}
