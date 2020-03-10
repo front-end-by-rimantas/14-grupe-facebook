@@ -33,8 +33,10 @@ header {
         .content > .feed {
             display: inline-block;
             width: calc(100% - 100px);
+            max-width: 500px;
             height: 100%;
             float: left;
+            overflow: auto;
         }
         .content > .ads {
             display: inline-block;

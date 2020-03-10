@@ -20,12 +20,63 @@ function renderFeed( data ) {
 }
 
 function renderPost( data ) {
-    let HTML = '';
+    console.log('-----------------');
     console.log(data);
 
-    HTML = `<div>POST - ${data}</div>`;
+    let HTML = `<div class="post">
+                    ${renderPostHeader( data.author, data.time )}
+                    ${renderPostContent( data.content )}
+                    ${renderPostFooter()}
+                </div>`;
+    return HTML;
+}
+
+function renderPostHeader( author, time ) {
+    let HTML = '';
+
+    HTML = '<div class="header">HEADER</div>';
 
     return HTML;
 }
 
+function renderPostContent() {
+    let HTML = '';
+
+    HTML = '<div class="content">CONTENT</div>';
+
+    return HTML;
+}
+
+function renderPostFooter() {
+    return '<div class="footer">FOOTER</div>';
+}
+
 renderFeed( feed );
+
+
+
+
+
+
+
+
+
+
+
+
+
+function renderPost( data ) {
+    console.log('-----------------');
+    console.log(data);
+
+    if ( !data.author || !data.time || !data.content ) {
+        return '';
+    }
+
+    let HTML = `<div class="post">
+                    ${renderPostHeader( data.author, data.time )}
+                    ${renderPostContent( data.content )}
+                    ${renderPostFooter()}
+                </div>`;
+    return HTML;
+}
