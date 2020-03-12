@@ -47,11 +47,63 @@ function renderPostHeader( author, time ) {
 }
 
 function renderPostContent( content ) {
-    console.log(content);
-    
+    let HTML = '<div class="content">';
+    if ( content.text ) {
+        HTML += renderPostContentText( content.text, content.background );
+    }
+    if ( content.images ) {
+        HTML += renderPostContentGallery( content.images );
+    }
+    HTML += '</div>';
+
+    return HTML;
+}
+
+function renderPostContentText( text, background ) {
     let HTML = '';
 
-    HTML = '<div class="content">CONTENT</div>';
+    HTML = `<p>${text}</p>`;
+
+    return HTML;
+}
+
+function renderPostContentGallery( images ) {
+    console.log(images);
+    let HTML = '';
+    let imgHTML = '';
+    let moreHTML = '';
+    let goodPhotoCount = 0;
+    let galleryClass = '';
+
+    if ( !Array.isArray(images) ||
+         images.length === 0 ) {
+        return '';
+    }
+
+    for ( let i=0; i<images.length; i++ ) {
+        if ( typeof(images[i]) === 'string' &&
+             images[i].length >= 5 &&
+             images[i].length < 100 ) {
+            goodPhotoCount++;
+            if ( goodPhotoCount <= 4 ) {
+                imgHTML += `<img src="./img/${images[i]}">`;
+            }
+        }
+    }
+
+    galleryClass = goodPhotoCount;
+    if ( goodPhotoCount > 4 ) {
+        galleryClass = 4;
+        moreHTML = `<div class="more">+${goodPhotoCount - 4}</div>`;
+    }
+    HTML = `<div class="gallery gallery-${galleryClass}">
+                ${imgHTML}
+                ${moreHTML}
+            </div>`;
+    
+    if ( goodPhotoCount === 0 ) {
+        return '';
+    }
 
     return HTML;
 }
