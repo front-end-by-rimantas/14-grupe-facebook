@@ -30,9 +30,6 @@ function renderPost( data ) {
 }
 
 function renderPostHeader( author, time ) {
-    console.log(author);
-    console.log(time);
-    
     let HTML = '';
 
     HTML = `<div class="header">
@@ -60,7 +57,30 @@ function renderPostContent( content ) {
 }
 
 function renderPostFooter() {
-    return '<div class="footer">FOOTER</div>';
+    return `<div class="footer">
+                <div class="row">
+                    <div class="action">
+                        <i class="fa fa-thumbs-up"></i>
+                        <div class="text">Like</div>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-comment-o"></i>
+                        <div class="text">Comment</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="./img/user.png">
+                    <div class="comment-form">
+                        <textarea></textarea>
+                        <div class="interactions">
+                            <i class="fa fa-smile-o"></i>
+                            <i class="fa fa-camera"></i>
+                            <i class="fa fa-file-image-o"></i>
+                            <i class="fa fa-user-secret"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
 }
 
 renderFeed( feed );
