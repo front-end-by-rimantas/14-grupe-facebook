@@ -21,8 +21,6 @@ function renderFeed( data ) {
 
 function renderPost( data ) {
     console.log('-----------------');
-    console.log(data);
-
     let HTML = `<div class="post">
                     ${renderPostHeader( data.author, data.time )}
                     ${renderPostContent( data.content )}
@@ -32,14 +30,28 @@ function renderPost( data ) {
 }
 
 function renderPostHeader( author, time ) {
+    console.log(author);
+    console.log(time);
+    
     let HTML = '';
 
-    HTML = '<div class="header">HEADER</div>';
+    HTML = `<div class="header">
+                <img src="./img/${author.img}">
+                <div class="texts">
+                    <div class="title">
+                        <a href="${author.link}">${author.name} ${author.surname}</a>
+                    </div>
+                    <div class="time">${time}</div>
+                </div>
+                <i class="fa fa-ellipsis-h"></i>
+            </div>`;
 
     return HTML;
 }
 
-function renderPostContent() {
+function renderPostContent( content ) {
+    console.log(content);
+    
     let HTML = '';
 
     HTML = '<div class="content">CONTENT</div>';
