@@ -20,8 +20,6 @@ function renderFeed( data ) {
 }
 
 function renderPost( data ) {
-    console.log('-----------------');
-    
     return `<div class="post">
                 ${renderPostHeader( data.author, data.time )}
                 ${renderPostContent( data.content )}
@@ -60,11 +58,13 @@ function renderPostContent( content ) {
 }
 
 function renderPostContentText( content ) {
+    const maxTextLength = 240;
+    const smallestTextLength = 30;
     let HTML = '';
     let style = '';
-    console.log(content);
+    let text = content.text;
 
-    if ( content.text.length <= 30 ) {
+    if ( text.length <= smallestTextLength ) {
         style += 'big-text';
     }
 
@@ -73,7 +73,21 @@ function renderPostContentText( content ) {
             style += ' '+content.background;
         }
     }
-    HTML = `<p class="${style}">${content.text}</p>`;
+
+    if ( text.length >= maxTextLength ) {
+        text = text.substring( 0, maxTextLength );
+        let skipSymbols = 0;
+        for ( let i=maxTextLength-1; i>=0; i-- ) {
+            if ( text[i] === ' ' ) {
+                break;
+            }
+            skipSymbols++;
+        }
+        text = text.substring( 0, maxTextLength-skipSymbols-1 );
+        text += '... <span class="more">Read more</span>';
+    }
+
+    HTML = `<p class="${style}" data-fulltext="${content.text}">${text}</p>`;
 
     return HTML;
 }
@@ -146,7 +160,6 @@ function renderPostFooter() {
 }
 
 function convertTime( timestamp ) {
-    console.log(timestamp);
     let time = '';
 
     time = '6h';
@@ -155,3 +168,16 @@ function convertTime( timestamp ) {
 }
 
 renderFeed( feed );
+
+const readMores = document.querySelectorAll('.post p > .more');
+
+for ( let i=0; i<readMores.length; i++ ) {
+    const readMore = readMores[i];
+    readMore.addEventListener('click', readMoreClick );
+}
+
+function readMoreClick( event ) {
+    const p = event.target.closest('p');
+    const fullText = p.dataset.fulltext;
+    return p.innerText = fullText;
+}

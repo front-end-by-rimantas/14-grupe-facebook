@@ -45,6 +45,18 @@ const feed = [
     },
     {
         author: {
+            name: 'Vardenis2',
+            surname: 'Pavardenis',
+            img: 'user.png',
+            link: '#'
+        },
+        time: 1583832433393,
+        content: {
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aut dolores soluta impedit, nostrum consequatur nam! Consectetur ipsam quas illo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aut dolores soluta impedit, nostrum consequatur nam! Consectetur ipsam quas illo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aut dolores soluta impedit, nostrum consequatur nam! Consectetur ipsam quas illo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aut dolores soluta impedit, nostrum consequatur nam! Consectetur ipsam quas illo.'
+        }
+    },
+    {
+        author: {
             name: 'Vardenis3',
             surname: 'Pavardenis',
             img: 'user.png',
