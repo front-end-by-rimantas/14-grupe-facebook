@@ -152,7 +152,21 @@ const feed = [
         time: 1583832433393,
         content: {
             text: 'Lorem ipsum dolor sit amet.',
-            background: 'red'
+            background: 'red',
+            images: []
+        }
+    },
+    {
+        author: {
+            name: 'Vardenis',
+            surname: 'Pavardenis',
+            img: 'user.png',
+            link: '#'
+        },
+        time: 1583832433393,
+        content: {
+            text: 'Lorem ipsum dolor sit amet.',
+            background: 'orange'
         }
     }
 ];

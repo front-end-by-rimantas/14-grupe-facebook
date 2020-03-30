@@ -61,6 +61,35 @@
             display: inline-block;
             width: 100%;
         }
+            .post > .content > p.big-text {
+                padding: 20px;
+                font-size: 28px;
+                line-height: 40px;
+            }
+            .post > .content > p.red {
+                padding: 80px 20px;
+                background-color: red;
+                color: #fff;
+                text-align: center;
+            }
+            .post > .content > p.blue {
+                padding: 80px 20px;
+                background-color: blue;
+                color: #fff;
+                text-align: center;
+            }
+            .post > .content > p.green {
+                padding: 80px 20px;
+                background-color: green;
+                color: #fff;
+                text-align: center;
+            }
+            .post > .content > p.orange {
+                padding: 80px 20px;
+                background-color: orange;
+                color: #333;
+                text-align: center;
+            }
         .post > .content > p + .gallery {
             margin-top: 20px;
         }
